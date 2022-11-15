@@ -4,14 +4,80 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
     <title>Weather Dashboard</title>
   </head>
   <body>
     <div class="container">
       <main>
-        <div></div>
-        <div></div>
+        <h1>Weather Dashboard</h1>
+        <div class="weather-wrapper">
+          <section class="search">
+            <h2>Search for a city:</h2>
+            <form action="#">
+              <input type="text" /><br />
+              <input type="submit" value="Search" />
+            </form>
+            <hr />
+
+            <ul>
+              <!-- dynamically load content -->
+              <li><a href="#">Atlanta</a></li>
+              <li><a href="#">Toronto</a></li>
+            </ul>
+          </section>
+          <div class="dashboard-wrapper">
+            <section class="city-weather">
+              <h3>Atlanta (9/13/2022)</h3>
+              <p>Temp: 76.62 f</p>
+              <p>Wind: 8.43 MPH</p>
+              <p>Humidity: 44 %</p>
+            </section>
+            <section class="forecasts">
+              <h4>5-Day forecast:</h4>
+              <div class="grid">
+                <article>
+                  <h5>9/14/2022</h5>
+                  <img src="#" alt="" />
+                  <p>Temp: 63.55 f</p>
+                  <p>Wind: 3.94 MPH</p>
+                  <p>Humidity: 63 %</p>
+                </article>
+                <article>
+                  <h5>9/15/2022</h5>
+                  <img src="#" alt="" />
+                  <p>Temp: 63.55 f</p>
+                  <p>Wind: 3.94 MPH</p>
+                  <p>Humidity: 63 %</p>
+                </article>
+                <article>
+                  <h5>9/16/2022</h5>
+                  <img src="#" alt="" />
+                  <p>Temp: 63.55 f</p>
+                  <p>Wind: 3.94 MPH</p>
+                  <p>Humidity: 63 %</p>
+                </article>
+                <article>
+                  <h5>9/17/2022</h5>
+                  <img src="#" alt="" />
+                  <p>Temp: 63.55 f</p>
+                  <p>Wind: 3.94 MPH</p>
+                  <p>Humidity: 63 %</p>
+                </article>
+                <article>
+                  <h5>9/18/2022</h5>
+                  <img src="#" alt="" />
+                  <p>Temp: 63.55 f</p>
+                  <p>Wind: 3.94 MPH</p>
+                  <p>Humidity: 63 %</p>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
       </main>
     </div>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>

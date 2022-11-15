@@ -1,0 +1,10 @@
+.weather-wrapper {
+  display: flex;
+  gap: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 3rem;
+}
