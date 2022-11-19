@@ -65,8 +65,22 @@ function fiveDayForecast(lon, lat) {
           fiveDayForecast.push(fiveDayOBJ);
         }
       }
-      console.log(fiveDayForecast);
+      createForcast(fiveDayForecast);
     });
+}
+
+function createForcast(days) {
+  console.log(days);
+  for (let i = 0; i < days.length; i += 1) {
+    let articleEL = $("<article>");
+    let h5EL = $("<h5>").text(days[i].date);
+    let p1EL = $("<p>").text(`Temp: ${days[i].temp} °F`);
+    let p2EL = $("<p>").text(`Wind: ${days[i].wind} MPH`);
+    let p3EL = $("<p>").text(`Humidity: ${days[i].temp}%`);
+
+    articleEL.append(h5EL, p1EL, p2EL, p3EL);
+    $(".grid").append(articleEL);
+  }
 }
 
 $("button").click(getWeather);
