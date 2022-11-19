@@ -47,15 +47,25 @@ function fiveDayForecast(lon, lat) {
     })
     .then((data) => {
       $(".humidity").text(data.list[0].main.humidity);
+      let weatherData = data.list;
+      let fiveDayForecast = [];
+      for (let i = 0; i < weatherData.length; i += 1) {
+        let [date, time] = weatherData[i].dt_txt.split(" ");
 
-      let [date, time] = data.list[3].dt_txt.split(" ");
-      const fiveDayForecast = {
-        date: date,
-        temp: 3,
-        wind: 3,
-        humidity: 4,
-      };
-      console.log(date, time);
+        const fiveDayOBJ = {
+          date: date,
+          icon: weatherData[i].weather[0].icon,
+          temp: weatherData[i].main.temp,
+          wind: weatherData[i].wind.speed,
+          humidity: weatherData[i].main.humidity,
+        };
+
+        if (time === "12:00:00") {
+          console.log("Time");
+          fiveDayForecast.push(fiveDayOBJ);
+        }
+      }
+      console.log(fiveDayForecast);
     });
 }
 
