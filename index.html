@@ -15,10 +15,10 @@
         <div class="weather-wrapper">
           <section class="search">
             <h2>Search for a city:</h2>
-            <form action="#">
-              <input type="text" /><br />
-              <input type="submit" value="Search" />
-            </form>
+
+            <input type="text" name="city" /><br />
+            <button>Search</button>
+
             <hr />
 
             <ul>
@@ -29,10 +29,10 @@
           </section>
           <div class="dashboard-wrapper">
             <section class="city-weather">
-              <h3>Atlanta (9/13/2022)</h3>
-              <p>Temp: 76.62 f</p>
-              <p>Wind: 8.43 MPH</p>
-              <p>Humidity: 44 %</p>
+              <h3 class="city-date">Atlanta (9/13/2022)</h3>
+              <p>Temp: <span class="temp"></span>&nbsp;°f</p>
+              <p>Wind: <span class="wind"></span> MPH</p>
+              <p>Humidity: <span class="humidity"></span> %</p>
             </section>
             <section class="forecasts">
               <h4>5-Day forecast:</h4>
@@ -78,6 +78,15 @@
         </div>
       </main>
     </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+      integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script>
+      dayjs().format();
+    </script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
