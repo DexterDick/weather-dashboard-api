@@ -27,10 +27,8 @@ function getWeather() {
   )
     .then((res) => res.json())
     .then((data) => {
-      $(".city-date").text(data.name + " " + date);
-      $(".temp").text(data.main.temp);
-      $(".wind").text(data.wind.speed);
-
+      // Call display weather function
+      displayWeather(data);
       // call fiveDayForecast
       let { lon, lat } = data.coord;
       fiveDayForecast(lon, lat);
@@ -46,7 +44,6 @@ function fiveDayForecast(lon, lat) {
       return res.json();
     })
     .then((data) => {
-      $(".humidity").text(data.list[0].main.humidity);
       let weatherData = data.list;
       let fiveDayForecast = [];
       for (let i = 0; i < weatherData.length; i += 1) {
@@ -69,8 +66,14 @@ function fiveDayForecast(lon, lat) {
     });
 }
 
+function displayWeather(data) {
+  $(".city-date").text(`${data.name} ${date}`);
+  $(".temp").text(`Temp: ${data.main.temp} °F`);
+  $(".wind").text(`Wind: ${data.wind.speed} MPH`);
+  $(".humidity").text(`Humidity: ${data.main.humidity} %`);
+}
+
 function createForcast(days) {
-  console.log(days);
   for (let i = 0; i < days.length; i += 1) {
     let articleEL = $("<article>");
     let h5EL = $("<h5>").text(days[i].date);
@@ -83,4 +86,5 @@ function createForcast(days) {
   }
 }
 
+// click to search by city name
 $("button").click(getWeather);
