@@ -1,15 +1,21 @@
 const API_KEY = "9de2a989cdaf88ab55b1e8d025ae0186";
 let defaultCity = "Toronto";
 const date = dayjs().format("MM/DD/YYYY");
-const hour = dayjs().format("h");
 let cityArr = [];
-let uniqueNames = [];
+let storedCities = [];
+let uniqueCityNames = [];
 let city;
 
 // call get weather to start
 init();
 function init() {
   getWeather(defaultCity);
+  // load citys stored in local storage
+  storedCities = JSON.parse(localStorage.getItem("cities"));
+  if (storedCities !== null) {
+    cityArr = storedCities;
+  }
+
   defaultCity = "";
 }
 
@@ -35,8 +41,15 @@ function getWeather(city) {
       let { lon, lat } = data.coord;
       fiveDayForecast(lon, lat);
 
-      // save to history storage
-      saveCity(city);
+      // saves city name to city array
+      cityArr.push(city);
+      $.each(cityArr, function (i, el) {
+        if ($.inArray(el, uniqueCityNames) === -1) uniqueCityNames.push(el);
+      });
+      // saves to local storange
+      saveCityLocal();
+      // display history data stored in local storage
+      displayCities();
     })
     .catch((error) => $("input[type='text']").val(""));
 }
@@ -70,20 +83,17 @@ function fiveDayForecast(lon, lat) {
     });
 }
 
-function saveCity(city) {
+function saveCityLocal() {
+  localStorage.setItem("cities", JSON.stringify(uniqueCityNames));
+}
+
+function displayCities() {
   // clears li elements
   $("li").remove();
-  if (city) {
-    cityArr.push(city);
-  }
-  // filter out duplicate names
-  $.each(cityArr, function (i, el) {
-    if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
-  });
-  $;
-  for (let i = 0; i < uniqueNames.length; i++) {
+
+  for (let i = 0; i < uniqueCityNames.length; i++) {
     const liEL = $("<li >").addClass("list-group-item");
-    const aEL = $("<a>").attr("href", "#").text(uniqueNames[i]);
+    const aEL = $("<a>").attr("href", "#").text(uniqueCityNames[i]);
     liEL.append(aEL);
     $("ul").append(liEL);
   }
@@ -125,6 +135,8 @@ $("button").click(function () {
   let strCity = $("input[type='text']").val().trim();
   city = strCity.charAt(0).toUpperCase() + strCity.slice(1);
   getWeather(city);
+  // clear input
+  $("input[type='text']").val("");
 });
 $(document).on("click", "a", function () {
   city = this.text;

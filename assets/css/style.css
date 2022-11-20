@@ -4,6 +4,7 @@
   --font-family-1: "Roboto", sans-serif;
   --color-black: black;
   --color-white: white;
+  --color-blue: rgb(33, 10, 83);
 }
 
 *,
@@ -50,7 +51,7 @@ h5 {
   font-weight: bold;
 }
 article {
-  background-color: rgb(33, 10, 83);
+  background-color: var(--color-blue);
   color: var(--color-white);
   padding: 2rem;
   border-radius: 5px;
