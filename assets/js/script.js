@@ -53,7 +53,7 @@ function fiveDayForecast(lon, lat) {
       let fiveDayForecast = [];
       for (let i = 0; i < weatherData.length; i += 1) {
         let [date, time] = weatherData[i].dt_txt.split(" ");
-
+        // saves five day weather
         const fiveDayOBJ = {
           date: date,
           icon: weatherData[i].weather[0].icon,
@@ -90,7 +90,6 @@ function saveCity(city) {
 }
 
 function displayWeather(data) {
-  console.log(data);
   $(".city-date").text(`${data.name} (${date})`);
   $("img").attr(
     `src`,
@@ -102,7 +101,6 @@ function displayWeather(data) {
 }
 
 function createForcast(days) {
-  console.log(days);
   // clears article elements and creates new ones.
   $("article").remove();
   for (let i = 0; i < days.length; i += 1) {

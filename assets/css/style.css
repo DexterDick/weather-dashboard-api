@@ -6,19 +6,25 @@
   --color-white: white;
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-2);
 }
 ul {
   list-style: none;
 }
 a {
   text-decoration: none;
-}
-
-body {
-  font-family: var(--font-family-2);
 }
 
 h1 {
@@ -44,7 +50,8 @@ h5 {
   font-weight: bold;
 }
 article {
-  background-color: aqua;
+  background-color: rgb(33, 10, 83);
+  color: var(--color-white);
   padding: 2rem;
   border-radius: 5px;
 }
@@ -88,12 +95,11 @@ article {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 1rem;
 }
-
 header {
   background-image: linear-gradient(
     to right,
-    rgba(255, 0, 0, 0),
-    rgba(255, 0, 0, 1)
+    rgba(33 10, 83, 0),
+    rgba(33, 10, 83, 1)
   );
   text-align: center;
   padding-top: 1rem;
