@@ -9,20 +9,13 @@ let city;
 // call get weather to start
 init();
 function init() {
-  getWeather();
+  getWeather(defaultCity);
   defaultCity = "";
 }
 
-function getWeather() {
-  if (defaultCity === "Toronto") {
-    city = defaultCity;
-  } else {
-    let strCity = $("input[type='text']").val().trim();
-    city = strCity.charAt(0).toUpperCase() + strCity.slice(1);
-    console.log(city);
-    if (city === "") {
-      return;
-    }
+function getWeather(city) {
+  if (city === "") {
+    return;
   }
 
   fetch(
@@ -125,8 +118,12 @@ function createForcast(days) {
 }
 
 // click to search by city name
-$("button").click(getWeather);
+$("button").click(function () {
+  let strCity = $("input[type='text']").val().trim();
+  city = strCity.charAt(0).toUpperCase() + strCity.slice(1);
+  getWeather(city);
+});
 $(document).on("click", "a", function () {
   city = this.text;
-  getWeather();
+  getWeather(city);
 });
