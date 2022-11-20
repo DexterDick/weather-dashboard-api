@@ -90,7 +90,12 @@ function saveCity(city) {
 }
 
 function displayWeather(data) {
-  $(".city-date").text(`${data.name} ${date}`);
+  console.log(data);
+  $(".city-date").text(`${data.name} (${date})`);
+  $("img").attr(
+    `src`,
+    `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`
+  );
   $(".temp").text(`Temp: ${data.main.temp} °F`);
   $(".wind").text(`Wind: ${data.wind.speed} MPH`);
   $(".humidity").text(`Humidity: ${data.main.humidity} %`);
