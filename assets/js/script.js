@@ -82,7 +82,7 @@ function saveCity(city) {
   });
   $;
   for (let i = 0; i < uniqueNames.length; i++) {
-    const liEL = $("<li>");
+    const liEL = $("<li >").addClass("list-group-item");
     const aEL = $("<a>").attr("href", "#").text(uniqueNames[i]);
     liEL.append(aEL);
     $("ul").append(liEL);
