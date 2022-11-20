@@ -1,10 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@400;500;700&display=swap");
+:root {
+  --font-family-2: "Open Sans", sans-serif;
+  --font-family-1: "Roboto", sans-serif;
+  --color-black: black;
+  --color-white: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: var(--font-family-2);
+}
+
+h1 {
+  font-family: var(--font-family-1);
+  color: var(--color-white);
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 2%;
+  max-width: 1440px;
+  border: 1px solid var(--color-black);
+}
+
+.city-weather {
+  border: 1px solid var(--color-black);
+  margin-bottom: 3rem;
+  padding: 1.5rem 0.5rem;
+}
 .weather-wrapper {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   gap: 3rem;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 3rem;
+}
+
+header {
+  background-color: blue;
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
