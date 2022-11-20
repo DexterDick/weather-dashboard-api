@@ -18,6 +18,6 @@ The weather app pulls weather data from api.openweathermap.org API using powered
 
 ## Screenshot
 
-![Mobile screenshot](./assets/images/mobile.png);
+![Mobile screenshot](./assets/images/mobile.png)
 
-![Desktop screenshot](./assets/images/desktop.png);
+![Desktop screenshot](./assets/images/desktop.png)
